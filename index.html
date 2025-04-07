@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="TapKerala offers smart NFC and QR solutions for Professionals, Drivers, Shop Owners, Teachers and more – all for a one-time payment of ₹399 with customizable designs and full tracking." />
+  <title>TapKerala - Smart NFC Solutions</title>
+  <style>
+    :root {
+      --primary: #1e2a44;
+      --secondary: #3b82f6;
+      --accent: #10b981;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --text-light: #f1f5f9;
+      --text-muted: #94a3b8;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans Malayalam', sans-serif;
+      background: linear-gradient(135deg, #1e2a44, #111827);
+      min-height: 100vh;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      overflow-x: hidden;
+      color: var(--text-light);
+    }
+
+    .banner-carousel {
+      max-width: 1000px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .banner-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .banner-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .banner-slide img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+
+    .banner-text {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: var(--text-light);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner-text h2 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .banner-text p {
+      font-size: 16px;
+    }
+
+    .banner-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 15px;
+    }
+
+    .banner-nav button {
+      background: var(--glass-bg);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .banner-nav button:hover {
+      background: var(--secondary);
+    }
+
+    .container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 50px;
+      border-radius: 16px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--secondary);
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 36px;
+      color: var(--text-light);
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .tagline {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .description {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .language-toggle {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .language-btn {
+      background: var(--glass-bg);
+      color: var(--text-light);
+      border: 1px solid var(--secondary);
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .language-btn.active {
+      background: var(--secondary);
+      color: var(--text-light);
+    }
+
+    .language-btn:hover {
+      background: var(--secondary);
+    }
+
+    /* Features Section (Same design as before) */
+    .features {
+      margin: 30px 0;
+      display: grid;
+      gap: 20px;
+    }
+    .feature-block {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: left;
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--accent);
+    }
+    .feature-block:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .feature-block h3 {
+      color: var(--text-light);
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .feature-block p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Usage Section - Different Design */
+    .usage {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      margin: 30px 0;
+      text-align: left;
+    }
+    .usage-content h3 {
+      color: var(--accent);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .usage-content p {
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .usage-content ul {
+      list-style: disc;
+      margin-left: 20px;
+      color: var(--text-light);
+    }
+    .usage-content li {
+      margin-bottom: 10px;
+    }
+
+    /* Customization and Tracking Sections (same design) */
+    .customization, .tracking {
+      margin: 30px 0;
+      display: grid;
+      gap: 20px;
+    }
+    .customization-block, .tracking-block {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: left;
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--accent);
+    }
+    .customization-block:hover, .tracking-block:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .customization-block h3, .tracking-block h3 {
+      color: var(--text-light);
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .customization-block p, .tracking-block p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .join-button {
+      margin-top: 40px;
+      background: var(--secondary);
+      color: var(--text-light);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .join-button:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      color: #2563eb;
+    }
+
+    /* Mobile View Adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 40px 20px;
+        gap: 40px;
+      }
+      .banner-carousel {
+        max-width: 100%;
+      }
+      .container {
+        padding: 40px 20px;
+        max-width: 100%;
+      }
+      .features, .usage, .customization, .tracking {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 15px;
+        gap: 30px;
+      }
+      .banner-slide img {
+        height: 200px;
+      }
+      .banner-text h2 {
+        font-size: 22px;
+      }
+      .banner-text p {
+        font-size: 14px;
+      }
+      .banner-nav button {
+        width: 35px;
+        height: 35px;
+      }
+      .container {
+        padding: 30px 15px;
+      }
+      .logo-img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 28px;
+        letter-spacing: 0.8px;
+      }
+      .tagline {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+      .description {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+      .language-toggle {
+        gap: 10px;
+      }
+      .feature-block, .customization-block, .tracking-block {
+        padding: 20px;
+      }
+      .feature-block h3, .customization-block h3, .tracking-block h3 {
+        font-size: 18px;
+      }
+      .feature-block p, .customization-block p, .tracking-block p {
+        font-size: 14px;
+      }
+      .join-button {
+        padding: 12px 20px;
+        font-size: 15px;
+        max-width: 100%;
+      }
+      .footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Banner Carousel -->
+  <div class="banner-carousel">
+    <div class="banner-slides" id="slides">
+      <div class="banner-slide">
+        <img src="https://ideogram.ai/assets/image/lossless/response/n7omHMj2Q8eIYz2m-f1v1A" alt="NFC Solution Banner"/>
+        <div class="banner-text">
+          <h2>Smart NFC Solution</h2>
+          <p>Only ₹399 - Lifelong Access</p>
+        </div>
+      </div>
+      <div class="banner-slide">
+        <img src="https://ideogram.ai/assets/image/lossless/response/Xv-HrGlxRGSxEBoW6UHlHg" alt="QR Code Banner"/>
+        <div class="banner-text">
+          <h2>Integrated QR Code</h2>
+          <p>Instant Sharing Anytime</p>
+        </div>
+      </div>
+      <div class="banner-slide">
+        <img src="https://ideogram.ai/assets/image/lossless/response/HIcaQoYQTjOpUT2_krCRXg" alt="Features Banner"/>
+        <div class="banner-text">
+          <h2>Powerful Features</h2>
+          <p>Everything in One Tap</p>
+        </div>
+      </div>
+      <div class="banner-slide">
+        <img src="https://ideogram.ai/assets/image/lossless/response/4j7dFC2oSoKkejSK7j4MWg" alt="Value Banner"/>
+        <div class="banner-text">
+          <h2>Unmatched Value</h2>
+          <p>₹399 for a Lifetime Solution</p>
+        </div>
+      </div>
+    </div>
+    <div class="banner-nav">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Logo and Branding -->
+    <img src="https://placehold.co/140x140/ffffff/000000/png?text=NFC" alt="TapKerala Logo" class="logo-img">
+    <h1>TapKerala</h1>
+    <p class="tagline">Advanced NFC Solutions for a Connected Future</p>
+    <p class="tagline">ഒരു ബന്ധിത ഭാവിക്കുള്ള നൂതന NFC പരിഹാരങ്ങൾ</p>
+    <p class="description" id="description">
+      A simple, smart way to share your details instantly using NFC and QR technology—just tap or scan!
+    </p>
+
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+      <button class="language-btn active" onclick="showEnglish()">English</button>
+      <button class="language-btn" onclick="showMalayalam()">മലയാളം</button>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features" id="features">
+      <!-- Content loaded via JavaScript -->
+    </div>
+
+    <!-- Usage Section with Different Design -->
+    <div class="usage" id="usage">
+      <!-- "Who Uses TapKerala?" content will load here with its own styling -->
+    </div>
+
+    <!-- Customization Options Section -->
+    <div class="customization">
+      <div class="customization-block">
+        <h3>Fully Customizable Profile</h3>
+        <p>Design your digital business card with your own name, logo, category, social media accounts, payment UPI/number, location, VCF, and personal web link. Tailor your appearance with customizable colors and layouts – all in one solution for just ₹399.</p>
+      </div>
+    </div>
+
+    <!-- Tracking Features Section -->
+    <div class="tracking">
+      <div class="tracking-block">
+        <h3>Analytics & Tracking</h3>
+        <p>Monitor your digital interactions with detailed analytics. Track total scans and every click on your shared content so you can measure your network and engagement effortlessly.</p>
+      </div>
+    </div>
+
+    <!-- Call-to-Action -->
+    <button class="join-button">Get Started for ₹399</button>
+
+    <div class="footer">
+      Powered by <a href="https://tapkerala.vercel.app">TapKerala</a>
+    </div>
+  </div>
+
+  <script>
+    // Banner Carousel Functionality
+    let currentSlide = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = document.querySelectorAll('.banner-slide').length;
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlide();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlide();
+    }
+
+    setInterval(nextSlide, 5000);
+
+    // Language Toggle Content
+    const featuresContainer = document.getElementById('features');
+    const descriptionContainer = document.getElementById('description');
+    const usageContainer = document.getElementById('usage');
+
+    const englishContent = {
+      description: "A simple, smart way to share your details instantly using NFC and QR technology—just tap or scan! Whether you're meeting someone new or running a business, TapKerala makes connecting effortless and modern.",
+      features: [
+        { 
+          title: "Perpetual Access", 
+          desc: "Pay just ₹399 once and use it forever—no monthly fees or renewals! It’s a one-time investment for a lifetime of convenience." 
+        },
+        { 
+          title: "Universal NFC & QR", 
+          desc: "Share your contact info, website, or social media with a tap (NFC) or scan (QR). Works with all smartphones—no extra apps needed!" 
+        },
+        { 
+          title: "Dynamic Customization", 
+          desc: "Change your details anytime—be it your phone number, email, or links—without needing a new solution. It’s flexible and always up-to-date." 
+        },
+        { 
+          title: "Versatile Applications", 
+          desc: "Use it for networking, payments, or promotions. One tool for personal, business, or creative needs!" 
+        }
+      ],
+      usage: `
+        <div class="usage-content">
+          <h3>Who Uses TapKerala?</h3>
+          <p>TapKerala is built for every professional need:</p>
+          <ul>
+            <li><strong>Professionals:</strong> Business cards, personal portfolios, and networking.</li>
+            <li><strong>Drivers:</strong> Vehicle details, emergency contacts, and route sharing.</li>
+            <li><strong>Shop Owners:</strong> Store details, offers, and instant payment links.</li>
+            <li><strong>Teachers:</strong> Educational profiles, class schedules, and contact info.</li>
+          </ul>
+        </div>
+      `
+    };
+
+    const malayalamContent = {
+      description: "NFC ഉം QR ഉം ഉപയോഗിച്ച് നിന്റെ വിശദാംശങ്ങൾ തൽക്ഷണം പങ്കിടാനുള്ള ലളിതവും സ്മാർട്ടുമായ മാർഗം—ടാപ്പ് ചെയ്യുക അല്ലെങ്കിൽ സ്കാൻ ചെയ്യുക! പുതിയ ആളുകളെ കണ്ടുമുട്ടുമ്പോഴോ ബിസിനസ് നടത്തുമ്പോഴോ, TapKerala ബന്ധപ്പെടലിനെ എളുപ്പവും ആധുനികവുമാക്കുന്നു.",
+      features: [
+        { 
+          title: "നിരന്തര ആക്സസ്", 
+          desc: "ഒറ്റത്തവണ ₹399 മാത്രം അടച്ച് എന്നെന്നേക്കും ഉപയോഗിക്കുക—പ്രതിമാസ ഫീസോ പുതുക്കലോ ഇല്ല!" 
+        },
+        { 
+          title: "യൂണിവേഴ്സൽ NFC & QR", 
+          desc: "നിന്റെ ഫോൺ നമ്പർ, വെബ്സൈറ്റ് അല്ലെങ്കിൽ സോഷ്യൽ മീഡിയ പങ്കിടാൻ NFC അല്ലെങ്കിൽ QR ഉപയോഗിക്കുക. എല്ലാ സ്മാർട്ട്ഫോണുകളിലും പ്രവർത്തിക്കും!" 
+        },
+        { 
+          title: "ഡൈനാമിക് കസ്റ്റമൈസേഷൻ", 
+          desc: "നിന്റെ വിവരങ്ങൾ—ഫോൺ നമ്പർ, ഇമെയിൽ, ലിങ്കുകൾ—എപ്പോൾ വേണമെങ്കിലും മാറ്റാം. പുതുക്കലിന് ബുദ്ധിമുട്ട് ഇല്ല." 
+        },
+        { 
+          title: "വൈവിധ്യമാർന്ന ആപ്ലിക്കേഷനുകൾ", 
+          desc: "നെറ്റ്‌വർക്കിംഗിനും, പേയ്‌മെന്റുകൾക്കും അല്ലെങ്കിൽ സ്വയം പ്രമോട്ട് ചെയ്യുന്നതിനും ഒരേ പരിഹാരം!" 
+        }
+      ],
+      usage: `
+        <div class="usage-content">
+          <h3>ടാപ് കേരളയെ ആരാണ് ഉപയോഗിക്കുന്നത്?</h3>
+          <p>ടാപ് കേരള പ്രൊഫഷണലുകൾക്കും മറ്റും വേണ്ടി രൂപകൽപന ചെയ്തതാണ്:</p>
+          <ul>
+            <li><strong>പ്രൊഫഷണലുകൾ:</strong> ബിസിനസ് കാര്‍ഡുകള്‍, വ്യക്തിഗത പോര്‍ട്ട്ഫോളിയോസ്, നെറ്റ്‌വർക്കിംഗ്.</li>
+            <li><strong>ഡ്രൈവർസ്:</strong> വാഹന വിവരങ്ങൾ, എമർജൻസി കോൺടാക്റ്റ്, റൂട്ടു ഷെയറിംഗ്.</li>
+            <li><strong>ഷോപ്പ് ഓണേഴ്‌സ്:</strong> സ്റ്റോർ വിശദാംശങ്ങൾ, ഓഫറുകൾ, തൽക്ഷണം പേയ്‌മെന്റ് ലിങ്കുകൾ.</li>
+            <li><strong>ടീച്ചേഴ്സ്:</strong> വിദ്യാഭ്യാസ പ്രൊഫൈലുകൾ, ക്ലാസ് ഷെഡ്യൂളുകൾ, കോൺടാക്ട് വിവരങ്ങൾ.</li>
+          </ul>
+        </div>
+      `
+    };
+
+    function showEnglish() {
+      document.querySelectorAll('.language-btn')[0].classList.add('active');
+      document.querySelectorAll('.language-btn')[1].classList.remove('active');
+      descriptionContainer.textContent = englishContent.description;
+      featuresContainer.innerHTML = englishContent.features.map(feature => `
+        <div class="feature-block">
+          <h3>${feature.title}</h3>
+          <p>${feature.desc}</p>
+        </div>
+      `).join('');
+      usageContainer.innerHTML = englishContent.usage;
+    }
+
+    function showMalayalam() {
+      document.querySelectorAll('.language-btn')[0].classList.remove('active');
+      document.querySelectorAll('.language-btn')[1].classList.add('active');
+      descriptionContainer.textContent = malayalamContent.description;
+      featuresContainer.innerHTML = malayalamContent.features.map(feature => `
+        <div class="feature-block">
+          <h3>${feature.title}</h3>
+          <p>${feature.desc}</p>
+        </div>
+      `).join('');
+      usageContainer.innerHTML = malayalamContent.usage;
+    }
+
+    // Set English as default on load
+    showEnglish();
+  </script>
+</body>
+</html>
